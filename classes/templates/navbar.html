@@ -4,20 +4,21 @@
     <span class="navbar-toggler-icon"></span>
   </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      {% if not request.user.is_authenticated %}
+      {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" style="color: white;" href="{% url 'classroom-create' %}">New Classroom</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signout' %}">Signout</a>
+        </li>
+      {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'signup' %}">Signup</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'signin' %}">Signin</a>
         </li>
-      {% else %}
-        <li class="nav-item">
-        <a class="nav-link" style="color: white;" href="{% url 'classroom-create' %}">New Classroom</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'signout' %}">Signout</a>
-        </li>
+        
       {% endif %}
     </div>
 </nav>

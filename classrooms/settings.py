@@ -25,7 +25,7 @@ SECRET_KEY = '8nh94bkm13c^o_o4ou8hb8$c)qpet%xb7h^lm8nlxs)&%l47vg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '104.248.20.17',]
 
 
 # Application definition
@@ -37,11 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+        'django.contrib.sites',
 
     'classes',
-
     'crispy_forms',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 ]
+SITE_ID = 1
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -118,6 +124,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOGIN_REDIRECT_URL = 'classroom-list'
 
 
 # Static files (CSS, JavaScript, Images)
